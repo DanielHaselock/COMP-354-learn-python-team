@@ -89,3 +89,27 @@ def test_dictionary_update():
 
     assert fruits_dictionary == {'apple': 'red', 'banana': 'yellow', 'cherry': 'red'}
     assert len(fruits_dictionary) == 3
+
+
+def test_dictionary_get():
+    """Retrieve existing or missing entries without changing the dictionary."""
+
+    fruits_dictionary = {'apple': 'green', 'banana': 'yellow'}
+
+    assert fruits_dictionary.get('apple') == 'green'
+    # A missing key returns None, or the supplied default, instead of raising KeyError.
+    assert fruits_dictionary.get('cherry') is None
+    assert fruits_dictionary.get('cherry', 'unknown') == 'unknown'
+    assert fruits_dictionary == {'apple': 'green', 'banana': 'yellow'}
+
+
+def test_dictionary_pop():
+    """Remove an entry and retrieve its value, with a fallback for missing keys."""
+
+    fruits_dictionary = {'apple': 'green', 'banana': 'yellow'}
+
+    assert fruits_dictionary.pop('banana') == 'yellow'
+    assert fruits_dictionary == {'apple': 'green'}
+    # A default allows repeated removal attempts without raising KeyError.
+    assert fruits_dictionary.pop('banana', 'not found') == 'not found'
+    assert fruits_dictionary == {'apple': 'green'}
