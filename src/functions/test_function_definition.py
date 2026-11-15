@@ -135,6 +135,22 @@ def test_function_parameters_and_return_values():
     assert power(base=5, exponent=2) == 25
 
 
+def test_function_variable_arguments():
+    """Function with variable positional arguments (*args)."""
+
+    def sum_all(*args):
+        """Return the sum of all provided arguments."""
+        total = 0
+        for number in args:
+            total += number
+        return total
+
+    assert sum_all() == 0
+    assert sum_all(1) == 1
+    assert sum_all(1, 2, 3) == 6
+    assert sum_all(10, 20, 30, 40) == 100
+
+
 def test_function_input_validation():
     """Function with simple input validation."""
 
