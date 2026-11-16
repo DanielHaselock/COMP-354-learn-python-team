@@ -49,4 +49,15 @@ def test_multiple_elif_conditions():
     assert result == 'Very Good'
 
 
+def test_nested_if_conditions():
+    """Demonstrate nested if conditions"""
 
+    age = 20
+    is_student = True
+    discount = False
+
+    if age >= 18:
+        if is_student:
+            discount = True
+
+    assert discount is True
