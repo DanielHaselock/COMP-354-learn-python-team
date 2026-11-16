@@ -26,3 +26,38 @@ def test_if_statement():
         conclusion = 'Number bigger than or equal to one'
 
     assert conclusion == 'Number bigger than or equal to one'
+
+
+
+def test_multiple_elif_conditions():
+    """Demonstrate multiple elif conditions"""
+
+    grade = 85
+    result = ''
+
+    if grade >= 90:
+        result = 'Excellent'
+    elif grade >= 80:
+        result = 'Very Good'
+    elif grade >= 70:
+        result = 'Good'
+    elif grade >= 60:
+        result = 'Pass'
+    else:
+        result = 'Fail'
+
+    assert result == 'Very Good'
+
+
+def test_nested_if_conditions():
+    """Demonstrate nested if conditions"""
+
+    age = 20
+    is_student = True
+    discount = False
+
+    if age >= 18:
+        if is_student:
+            discount = True
+
+    assert discount is True
