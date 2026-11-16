@@ -121,3 +121,52 @@ def test_function_definition():
     greet_with_closure = compose_greet_func_with_closure('John')
 
     assert greet_with_closure() == 'Hello there, John!'
+
+
+def test_function_parameters_and_return_values():
+    """Function parameters, default values, and return values."""
+
+    # Function with default parameter values
+    def power(base, exponent=2):
+        return base ** exponent
+
+    assert power(3) == 9
+    assert power(3, 3) == 27
+    assert power(base=5, exponent=2) == 25
+
+
+def test_function_variable_arguments():
+    """Function with variable positional arguments (*args)."""
+
+    def sum_all(*args):
+        """Return the sum of all provided arguments."""
+        total = 0
+        for number in args:
+            total += number
+        return total
+
+    assert sum_all() == 0
+    assert sum_all(1) == 1
+    assert sum_all(1, 2, 3) == 6
+    assert sum_all(10, 20, 30, 40) == 100
+
+
+def test_function_input_validation():
+    """Function with simple input validation."""
+
+    def divide(a, b):
+        """Return the quotient of a divided by b.
+
+        Validates that b is not zero before dividing.
+        """
+        if b == 0:
+            raise ValueError("divisor cannot be zero")
+        return a / b
+
+    assert divide(10, 2) == 5.0
+    assert divide(7, 2) == 3.5
+
+    import pytest
+
+    with pytest.raises(ValueError, match="divisor cannot be zero"):
+        divide(10, 0)
