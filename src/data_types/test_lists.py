@@ -291,7 +291,10 @@ def test_nested_list_comprehensions():
     ]
 
     # The following list comprehension will transpose rows and columns:
-    transposed_matrix = [[row[i] for row in matrix] for i in range(4)]
+    transposed_matrix = [
+        [matrix[row_index][col_index] for row_index in range(len(matrix))]
+        for col_index in range(len(matrix[0]))
+    ]
     assert transposed_matrix == [
         [1, 5, 9],
         [2, 6, 10],
