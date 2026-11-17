@@ -61,3 +61,10 @@ def test_nested_if_conditions():
             discount = True
 
     assert discount is True
+
+    # Additional check: student adults consistently receive a discount
+    discount2 = False
+    if age >= 18:
+        if is_student:
+            discount2 = True
+    assert discount2 is True
