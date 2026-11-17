@@ -249,13 +249,13 @@ def test_list_comprehensions():
 
     vector = [-4, -2, 0, 2, 4]
 
-    # Create a new list with the values doubled.
-    doubled_vector = [x * 2 for x in vector]
-    assert doubled_vector == [-8, -4, 0, 4, 8]
+    # Create a new list containing only negative numbers.
+    negative_vector = [x for x in vector if x < 0]
+    assert negative_vector == [-4, -2]
 
-    # Filter the list to exclude negative numbers.
-    positive_vector = [x for x in vector if x >= 0]
-    assert positive_vector == [0, 2, 4]
+    # Create a new list with the negative numbers doubled.
+    doubled_negative_vector = [x * 2 for x in negative_vector]
+    assert doubled_negative_vector == [-8, -4]
 
     # Apply a function to all the elements.
     abs_vector = [abs(x) for x in vector]
